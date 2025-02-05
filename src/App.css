@@ -1,0 +1,111 @@
+.bg-color{
+  /* background: linear-gradient(135deg, #6a11cb 0%, #979eab 100%); */
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* background: linear-gradient(135deg, #6a11cb 0%, #979eab 100%); */
+  
+}
+
+.form-wrapper {
+  background-color: white;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(10px);
+}
+
+.form-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 24px;
+  font-family: 'Poppins', sans-serif;
+  color: #2575fc;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7f8c8d;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #dfe6e9;
+  border-radius: 12px;
+  background-color: #ecf0f1;
+  font-size: 16px;
+  color: #2c3e50;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-input:focus {
+  border-color: #ff6347;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(255, 99, 71, 0.3);
+}
+
+.form-input:hover {
+  border-color: #ff6347;
+  background-color: #f7fafc;
+}
+
+.form-submit {
+  text-align: center;
+}
+
+.submit-btn {
+  padding: 14px 32px;
+  background-color: #ff6347;
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+.submit-btn:hover {
+  background-color: #e04e36;
+  transform: translateY(-3px);
+}
+
+.submit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 99, 71, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+  background-color: #d43f2a;
+}
+
+.margin-form {
+  margin-top: 20px;
+}
