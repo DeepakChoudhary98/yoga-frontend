@@ -8,6 +8,7 @@ import PaymentForm from "./components/Payment";
 import PaymentStatus from "./components/PaymentStatus";
 import Update from "./components/Update";
 import UpdateStatus from "./components/UpdateStatus";
+import RegisterStatus from "./components/RegisterStatus";
 function App() {
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/payment-status" element={<PaymentStatus />} />
           <Route path="/update" element={<Update/>}/>
           <Route path="/update-status" element={<UpdateStatus/>}/>
+          <Route path="/register-status" element={<RegisterStatus/>}/>
         </Routes>
       </Router>
      

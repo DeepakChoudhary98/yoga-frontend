@@ -28,7 +28,7 @@ const ModernForm = () => {
     e.preventDefault();
     // Here you can handle the form submission, e.g., API call or navigating
     console.log(formData);
-    navigate('/payment');
+    navigate('/register-status');
   };
 
   return (
