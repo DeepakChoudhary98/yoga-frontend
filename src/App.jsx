@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import PaymentForm from "./components/Payment";
 import PaymentStatus from "./components/PaymentStatus";
 import Update from "./components/Update";
+import UpdateStatus from "./components/UpdateStatus";
 function App() {
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/payment" element={<PaymentForm />} />
           <Route path="/payment-status" element={<PaymentStatus />} />
           <Route path="/update" element={<Update/>}/>
+          <Route path="/update-status" element={<UpdateStatus/>}/>
         </Routes>
       </Router>
      

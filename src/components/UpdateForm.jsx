@@ -28,7 +28,7 @@ const UpdateForm = () => {
     e.preventDefault();
     // Here you can handle the form submission, e.g., API call or navigating
     console.log(formData);
-    navigate("/payment");
+    navigate("/update-status");
   };
 
   return (
@@ -137,7 +137,7 @@ const UpdateForm = () => {
             </div> */}
 
             <div className="form-submit">
-              <button type="submit" className="submit-btn">
+              <button type="submit" className="submit-btn" onClick={handleSubmit}>
                 Submit
               </button>
             </div>
