@@ -28,7 +28,7 @@ const PaymentStatus = () => {
             </p>
           </div>
         ) : (
-          <p>No payment details available.</p>
+          <p>Thanks For making Payment</p>
         )}
         <button
           className="go-home-btn"
