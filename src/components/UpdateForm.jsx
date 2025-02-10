@@ -25,6 +25,7 @@ const UpdateForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    navigate('/update-status');
 
     try {
       // Send the updated form data to backend API (port 5000)
