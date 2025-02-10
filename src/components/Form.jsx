@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import "../App.css";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
-import HeaderLogin from "./HeaderLogin";
-const ModernForm = () => {
-    const navigate = useNavigate();
+import Header from "./Header";
+import axios from "axios";
+
+const UpdateForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     age: "",
     email: "",
-    phone: "",
-    month: "",
+    password: "",
     batch: "",
-    year: "",
-    paymentId: "",
   });
 
   const handleChange = (e) => {
@@ -24,17 +23,47 @@ const ModernForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you can handle the form submission, e.g., API call or navigating
-    console.log(formData);
-    navigate('/register-status');
+    console.log("in submitting");
+
+    try {
+      console.log(formData);
+     // console.log(JSON.stringify(formData));
+      // const response = await axios.post(
+      //   "http://localhost:4000/api/user/register",
+      //   formData
+      // );
+// const response = await axios.post(
+//   "http://localhost:4000/api/user/register",
+//   {
+//     name: formData.name,
+//     age: formData.age,
+//     email: formData.email,
+//     password: formData.password,
+//     batch: formData.batch,
+//   }
+// );
+//console.log(response.data);
+
+navigate("/dashboard");
+      console.log(response.data);
+
+      if (response.status === 200) {
+        console.log("Update successful", response.data);
+        navigate('/login');
+        navigate("/update-status");
+      } else {
+        console.log("Update failed", response.data);
+      }
+    } catch (error) {
+      console.error("Error during update", error);
+    }
   };
 
   return (
     <>
-      <HeaderLogin />
-
+      <Header />
       <div className="form-container margin-form bg-color">
         <div className="form-wrapper">
           <h2 className="form-title">Register</h2>
@@ -50,6 +79,7 @@ const ModernForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="form-group">
@@ -63,6 +93,7 @@ const ModernForm = () => {
                 name="age"
                 value={formData.age}
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="form-group">
@@ -76,34 +107,23 @@ const ModernForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="phone" className="form-label">
-                Phone
+              <label htmlFor="password" className="form-label">
+                Password
               </label>
               <input
-                id="phone"
-                type="text"
+                id="password"
+                type="password"
                 className="form-input"
-                name="phone"
-                value={formData.phone}
+                name="password"
+                value={formData.password}
                 onChange={handleChange}
+                required
               />
             </div>
-            {/* <div className="form-group">
-              <label htmlFor="month" className="form-label">
-                Month
-              </label>
-              <input
-                id="month"
-                type="text"
-                className="form-input"
-                name="month"
-                value={formData.month}
-                onChange={handleChange}
-              />
-            </div> */}
             <div className="form-group">
               <label htmlFor="batch" className="form-label">
                 Batch
@@ -114,30 +134,17 @@ const ModernForm = () => {
                 name="batch"
                 value={formData.batch}
                 onChange={handleChange}
+                required
               >
                 <option value="">Select Batch</option>
-                <option value="Batch 1">6-7 AM</option>
-                <option value="Batch 1">7-8 AM</option>
-                <option value="Batch 1">8-9 AM</option>
-                <option value="Batch 2">5-6 PM</option>
+                <option value="6-7AM">6-7AM</option>
+                <option value="7-8AM">7-8AM</option>
+                <option value="8-9AM">8-9AM</option>
+                <option value="5-6PM">5-6PM</option>
               </select>
             </div>
-            {/* <div className="form-group">
-              <label htmlFor="year" className="form-label">
-                Year
-              </label>
-              <input
-                id="year"
-                type="number"
-                className="form-input"
-                name="year"
-                value={formData.year}
-                onChange={handleChange}
-              />
-            </div> */}
-
             <div className="form-submit">
-              <button type="submit" className="submit-btn">
+              <button type="submit" className="submit-btn" onClick={handleSubmit}>
                 Submit
               </button>
             </div>
@@ -149,4 +156,4 @@ const ModernForm = () => {
   );
 };
 
-export default ModernForm;
+export default UpdateForm;

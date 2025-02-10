@@ -46,7 +46,7 @@ const Hero = () => {
         <button type="button" class="btn btn-primary" onClick={handleClick}>
           Register
         </button>
-        <button
+        {/* <button
           type="button"
           class="btn btn-secondary"
           onClick={handleClickPayment}
@@ -59,7 +59,7 @@ const Hero = () => {
           onClick={handleClickUpdate}
         >
           Update
-        </button>
+        </button> */}
       </div>
     );
 }

@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-const Header = () => {
+const HeaderNew = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    const handleClick = () => {
-      navigate("/signup");
-    };
-    const handleLogin = () => {
-      navigate("/login");
-    };
+  const handleClick = () => {
+    navigate("/signup");
+  };
+  const handleLogout = () => {
+    navigate("/");
+  };
 
   return (
     <div className="container">
@@ -60,22 +59,19 @@ const Header = () => {
         </ul>
 
         <div className="col-md-3 text-end">
-          <button type="button" className="btn btn-outline-primary me-2" onClick={handleLogin}>
-            Login
+          <button
+            type="button"
+            className="btn btn-outline-primary me-2"
+            onClick={handleLogout}
+          >
+            Logout
           </button>
-         
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={ handleClick}
-            >
-              Sign-up
-            </button>
-      
+
+          
         </div>
       </header>
     </div>
   );
 };
 
-export default Header;
+export default HeaderNew;

@@ -3,6 +3,8 @@ import "../App.css";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import HeaderLogin from "./HeaderLogin";
+import axios from "axios";
+
 const UpdateForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -10,10 +12,7 @@ const UpdateForm = () => {
     age: "",
     email: "",
     phone: "",
-    month: "",
     batch: "",
-    year: "",
-    paymentId: "",
   });
 
   const handleChange = (e) => {
@@ -24,11 +23,26 @@ const UpdateForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you can handle the form submission, e.g., API call or navigating
-    console.log(formData);
-    navigate("/update-status");
+
+    try {
+      // Send the updated form data to backend API (port 5000)
+      const response = await axios.put(
+        "http://localhost:3000/update",
+        formData
+      );
+
+      if (response.status === 200) {
+        console.log("Update successful", response.data);
+        // Redirect to the update status page after successful update
+        navigate("/update-status");
+      } else {
+        console.log("Update failed", response.data);
+      }
+    } catch (error) {
+      console.error("Error during update", error);
+    }
   };
 
   return (
@@ -91,19 +105,6 @@ const UpdateForm = () => {
                 onChange={handleChange}
               />
             </div>
-            {/* <div className="form-group">
-              <label htmlFor="month" className="form-label">
-                Month
-              </label>
-              <input
-                id="month"
-                type="text"
-                className="form-input"
-                name="month"
-                value={formData.month}
-                onChange={handleChange}
-              />
-            </div> */}
             <div className="form-group">
               <label htmlFor="batch" className="form-label">
                 Batch
@@ -122,22 +123,9 @@ const UpdateForm = () => {
                 <option value="Batch 2">5-6 PM</option>
               </select>
             </div>
-            {/* <div className="form-group">
-              <label htmlFor="year" className="form-label">
-                Year
-              </label>
-              <input
-                id="year"
-                type="number"
-                className="form-input"
-                name="year"
-                value={formData.year}
-                onChange={handleChange}
-              />
-            </div> */}
 
             <div className="form-submit">
-              <button type="submit" className="submit-btn" onClick={handleSubmit}>
+              <button type="submit" className="submit-btn">
                 Submit
               </button>
             </div>
